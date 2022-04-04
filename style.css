@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    background: #f8e6fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+label + input {
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px 14px;
+    outline: none;
+    border: none;
+    background: plum;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#delete {
+    position: relative;
+    left: -4px;
+    border-radius: 0 4px 4px 0;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#password {
+    padding: 8px 8px 8px 20px;
+    border-radius: 10px 0 0 10px;
+}
+
+input[name="length"] {
+    width: 20%;
+}
+input {
+    outline: none;
+    padding: 8px;
+    background: rgb(236, 191, 236);
+    border: none;
+    border-radius: 10px;
+}
