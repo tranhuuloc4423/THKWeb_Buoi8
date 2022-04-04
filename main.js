@@ -6,77 +6,33 @@ const symbol = document.querySelector('#symbol');
 const generate = document.querySelector('#generate');
 const deleteBtn = document.querySelector('#delete');
 
-let chars = "abcdefghijklmnopqrstuvwxyz"; 
-// ABCDEFGHIJKLMNOPQRSTUVWXYZ
+const chars = "abcdefghijklmnopqrstuvwxyz"; 
+const strings = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const numbers = "0123456789";
+const symbols = "~!@#$%^&*()";
 
-function randomPassword() {
-    let string_length = length.value;
+
+function randomPassword(length, character) {
     let randomstring = '';
-    for (let i = 0; i < string_length; i++) {
-        let random = Math.floor(Math.random() * chars.length);
-        randomstring += chars.substring(random,random + 1);
+    for (let i = 0; i < length; i++) {
+        let random = Math.floor(Math.random() * character.length);
+        randomstring += character.substring(random,random + 1);
     }
     return randomstring;
 }
 
-var strings = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var numbers = "0123456789";
-var symbols = "~!@#$%^&*()";
 
-console.log(chars.concat(strings))
-
-
-function eheckIsUppercase() {
-    
+generate.onclick = function() {
+    let character = chars
+    isUppercase.checked ? (character += strings) : ''
+    hasNumber.checked ? (character += numbers) : ''
+    symbol.checked ? (character += symbols) : ''
+    password.value = randomPassword(length.value, character)
 }
-
-function isSymbol() {
-    
-}
-
-
-function check() {
-    if(isUppercase.checked) {
-        chars = chars.concat(strings)
-        password.value = randomPassword()
-    } else {
-        chars = chars
-        password.value = randomPassword()
-    }
-
-    if(symbol.checked) {
-        chars = chars.concat(symbols)
-        password.value = randomPassword()
-    } else {
-        chars = chars
-        password.value = randomPassword()
-    }
-
-    if(hasNumber.checked) {
-        chars = chars.concat(numbers)
-        password.value = randomPassword()
-    } else {
-        chars = chars
-        password.value = randomPassword()
-    }
-    return password.value
-}
-
-
-
-function generatePassword() {
-    generate.onclick = function() {
-        password.value = check();
-        length.value = randomPassword().length;
-        console.log(randomPassword())
-    }
-}
-
-generatePassword();
 
 deleteBtn.onclick = function() {
     password.value = ''
-    length.value = ''
+    length.value = '8'
     isUppercase.checked = false
     hasNumber.checked = false
     symbol.checked = false
